@@ -1,6 +1,6 @@
 # Postgrest Windows test
 
-This repository contains basic setup and test for Postgrest.
+This repository contains basic setup and test for Postgrest. All dependencies are automatically installed, database is automatically created so you can start testing and tweaking in minutes.
 
 ## Usage
 
