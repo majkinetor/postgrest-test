@@ -8,7 +8,7 @@ param (
 task Deps {
     if (!(Get-Command choco -ea 0)) { throw "Chocolatey installation is required: Run: iwr https://chocolatey.org/install.ps1 | iex" }
     choco install postgresql12 --params '/Password:test'
-    choco install postgrerest --version 7.0.1
+    choco install postgrest --version 7.0.1
     choco install superbenchmarker
     Write-Host "Restart shell"
 }
