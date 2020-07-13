@@ -29,7 +29,7 @@ task Run {
 
 #Synopsis: Get 50 todo items with random offset
 task Todos {
-    Invoke-RestMethod "http://localhost:3000/todos?limit=50&offset=$(Get-Random $aTodosCount)" -Headers @{ Prefer = "count=planned" }
+    Invoke-RestMethod "http://localhost:3000/todos?id=gt.$(Get-Random $aTodosCount)&order=id&limit=50"
 }
 
 #Synopsis: Get single todo item with random id
@@ -39,7 +39,11 @@ task Todo {
 
 #Synopsis: Start perf test with limit set to 50 todo items and random offset
 task PerfTestBulk {
-    sb -c 10 -N $aPerfLength  -u "http://localhost:3000/todos?limit=50&offset={{{offset:RAND_INTEGER:[1:$aTodosCount]}}}" -t sb_headers.txt
+    sb -c 10 -N $aPerfLength  -u "http://localhost:3000/todos?id=gt.{{{id:RAND_INTEGER:[1:$aTodosCount]}}}&order=id&limit=50" -t sb_headers.txt
+}
+
+task PerfTestBulk2 {
+    sb -c 10 -N $aPerfLength  -u "http://localhost:3000/todos?order=id&limit=50&offset={{{offset:RAND_INTEGER:[1:$aTodosCount]}}}" -t sb_headers.txt
 }
 
 #Synopsis: Start perf test with single random todo item
