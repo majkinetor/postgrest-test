@@ -35,15 +35,18 @@ Modify number of created todo items via `-aTodosCount` argument - by default 100
 
 ## Screenshot
 
-The following screenshot is created in Windows Sandbox using the following script:
+The following screenshot is created in Windows Sandbox using the following command:
 
 ```ps1
-choco install postgresql12 --params '/Password:test'
-choco install postgrest
+ib RunSandboxed
+```
 
+which executes the following script inside VM:
+
+```ps1
 cd postgrest-test
 Set-Alias ib $pwd\Invoke-Build.ps1
-ib RecreateDb, Run, Todo, Todos
+ib Deps, RecreateDb, Run, Todo, Todos
 ```
 
 ![screenshot](screenshot.png)

@@ -27,6 +27,14 @@ task Run {
     start 'cmd.exe' -ArgumentList "/D /C title $cmdTitle & $cmd"
 }
 
+task RunSandboxed {
+    .\Test-Sandbox.ps1 -Script {
+        cd postgrest-test
+        Set-Alias ib $pwd\Invoke-Build.ps1
+        ib Deps, RecreateDb, Run, Todo, Todos
+    }
+}
+
 #Synopsis: Get 50 todo items with random offset
 task Todos {
     Invoke-RestMethod "http://localhost:3000/todos?id=gt.$(Get-Random $aTodosCount)&order=id&limit=50"
