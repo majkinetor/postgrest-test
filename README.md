@@ -4,7 +4,7 @@ This repository contains basic setup and test for [Postgrest](https://github.com
 
 ## Usage
 
-The repository uses embedded [Invoke-Build](https://github.com/nightroman/Invoke-Build). You can call it directly using `./Invoke-Build.ps1`. Its easier to setup alias: `Set-Alias ib $pwd\Invoke-Build.ps1`
+The repository uses embedded [Invoke-Build](https://github.com/nightroman/Invoke-Build) to run tasks.
 
 To get list of all tasks run `ib ?`:
 
