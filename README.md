@@ -24,9 +24,26 @@ PerfTestSingle {}   Start perf test with single random todo item
 
 ## Quick start
 
-1. Install local dependencies before first run: in administrative shell run: `ib Deps`<br>
+1. Open administrative shell in repository root and type: `Set-Alias ib $pwd\Invoke-Build.ps1`
+2. Install local dependencies only on first run: `ib Deps`<br>
 This will install postgresql (with password `test`), postgrest & superbenchmarker via chocolatey.
 2. Create database with: `ib RecreateDatabase`.<br>
 Modify number of created todo items via `-aTodosCount` argument - by default 100K records are randomly created.
 1. Start backend with `ib Run`.
 2. Test with `ib Todo` (gets single random todo item) or `ib Todos` (gets bulk todo's)
+
+
+## Screenshot
+
+The following screenshot is created in Windows Sandbox using the following script:
+
+```ps1
+choco install postgresql12 --params '/Password:test'
+choco install postgrest
+
+cd postgrest-test
+Set-Alias ib $pwd\Invoke-Build.ps1
+ib RecreateDb, Run, Todo, Todos
+```
+
+![screenshot](screenshot.png)
