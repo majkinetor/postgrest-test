@@ -33,7 +33,7 @@ Modify number of created todo items via `-aTodosCount` argument - by default 100
 2. Test with `ib Todo` (gets single random todo item) or `ib Todos` (gets bulk todo's)
 
 
-## Screenshot
+## Run in Windows Sandbox
 
 The following screenshot is created in Windows Sandbox using the following command:
 
