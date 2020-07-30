@@ -35,7 +35,7 @@ Modify number of created todo items via `-aTodosCount` argument - by default 100
 
 ## Run in Windows Sandbox
 
-Run everything in Windows Sandbox using the following command:
+Run everything in [Windows Sandbox](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-sandbox/windows-sandbox-overview) using the following command:
 
 ```ps1
 ib RunSandboxed
