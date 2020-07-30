@@ -6,7 +6,7 @@ This repository contains basic setup and test for [Postgrest](https://github.com
 
 The repository uses embedded [Invoke-Build](https://github.com/nightroman/Invoke-Build) to run tasks.
 
-To get list of all tasks run `ib ?`:
+To get list of all tasks run with `?`:
 
 ```
 > ./Invoke-Build.ps1 ?
