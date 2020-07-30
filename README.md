@@ -16,9 +16,11 @@ Name           Jobs Synopsis
 Deps           {}   Install postgresql12 postgrerest and superbenchmarker via chocolatey
 RecreateDb     {}   Recreate database using db.sql. Pass aTodosCount to specify number of todo items to seed (default 100K)
 Run            {}   Run postgrest backend
+RunSandboxed   {}   Run inside Windows Sandbox
 Todos          {}   Get 50 todo items with random offset
 Todo           {}   Get single todo item with random id
 PerfTestBulk   {}   Start perf test with limit set to 50 todo items and random offset
+PerfTestBulk2  {}   Start perf test with limit set to 50 todo items and random offset (alternative)
 PerfTestSingle {}   Start perf test with single random todo item
 ```
 

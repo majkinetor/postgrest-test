@@ -10,7 +10,8 @@ task Deps {
     choco install postgresql12 --params '/Password:test'
     choco install postgrest --version 7.0.1
     choco install superbenchmarker
-    Write-Host "Restart shell"
+    Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
+    Update-SessionEnvironment
 }
 
 #Synopsis: Recreate database using db.sql. Pass aTodosCount to specify number of todo items to seed (default 100K)
@@ -27,6 +28,7 @@ task Run {
     start 'cmd.exe' -ArgumentList "/D /C title $cmdTitle & $cmd"
 }
 
+#Synopsis: Run inside Windows Sandbox
 task RunSandboxed {
     .\Test-Sandbox.ps1 -Script {
         cd postgrest-test
@@ -50,6 +52,7 @@ task PerfTestBulk {
     sb -c 10 -N $aPerfLength  -u "http://localhost:3000/todos?id=gt.{{{id:RAND_INTEGER:[1:$aTodosCount]}}}&order=id&limit=50" -t sb_headers.txt
 }
 
+#Synopsis: Start perf test with limit set to 50 todo items and random offset (alternative)
 task PerfTestBulk2 {
     sb -c 10 -N $aPerfLength  -u "http://localhost:3000/todos?order=id&limit=50&offset={{{offset:RAND_INTEGER:[1:$aTodosCount]}}}" -t sb_headers.txt
 }
