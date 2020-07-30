@@ -9,7 +9,7 @@ The repository uses embedded [Invoke-Build](https://github.com/nightroman/Invoke
 To get list of all tasks run `ib ?`:
 
 ```
-> ib ?
+> ./Invoke-Build.ps1 ?
 
 Name           Jobs Synopsis
 ----           ---- --------
