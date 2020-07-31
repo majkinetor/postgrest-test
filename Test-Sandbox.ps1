@@ -1,5 +1,5 @@
-﻿Param(
-  [ScriptBlock] $Script = { gi *.nuspec | sort LastWriteTime | Select -Last 1 },
+Param(
+  [ScriptBlock] $Script,
   [string[]] $MapFolder = $pwd
 )
 
