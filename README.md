@@ -52,3 +52,8 @@ ib Deps, RecreateDb, Run, Todo, Todos
 ```
 
 ![screenshot](screenshot.png)
+
+## Notes
+
+- [postgrest-benchmark](https://github.com/steve-chavez/postgrest-benchmark)<br>
+Another benchmark, using NixOs and K6
