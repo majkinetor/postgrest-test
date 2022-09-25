@@ -7,8 +7,8 @@ param (
 #Synopsis: Install postgresql12 postgrerest and superbenchmarker via chocolatey
 task Deps {
     if (!(Get-Command choco -ea 0)) { throw "Chocolatey installation is required: Run: iwr https://chocolatey.org/install.ps1 | iex" }
-    choco install postgresql12 --params '/Password:test'
-    choco install postgrest --version 7.0.1
+    choco install postgresql14 --params '/Password:test'
+    choco install postgrest --version 10.0
     choco install superbenchmarker
     Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
     Update-SessionEnvironment
@@ -22,10 +22,12 @@ task RecreateDb {
 
 #Synopsis: Run postgrest backend
 task Run {
+    if (!(Test-Path C:\postgrest\postgrest.exe)) { throw 'C:\postgrest\postgrest.exe not found' }
+
     $cmd = "C:\postgrest\postgrest.exe postgrest.conf"
     $cmdTitle = 'postgrest server'
 
-    start 'cmd.exe' -ArgumentList "/D /C title $cmdTitle & $cmd"
+    Start-Process 'cmd.exe' -ArgumentList "/D /C title $cmdTitle & $cmd"
 }
 
 #Synopsis: Run inside Windows Sandbox
