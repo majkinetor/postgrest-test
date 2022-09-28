@@ -8,7 +8,7 @@ param (
 task Deps {
     if (!(Get-Command choco -ea 0)) { throw "Chocolatey installation is required: Run: iwr https://chocolatey.org/install.ps1 | iex" }
     choco install postgresql14 --params '/Password:test'
-    choco install postgrest --version 10.0
+    choco install postgrest
     choco install superbenchmarker
     Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
     Update-SessionEnvironment
